@@ -64,7 +64,7 @@ func (client *redisHipacheConfigClient) BindingAddHost(domainName, backendHostAd
 }
 
 // BindingRemoveHost() removes the given backendHostAddress from the list of backends for domainName.
-// LREM frontend:{domainName} -1 {backendHostAddress}
+// BUG: Does not return a *BindingNotFoundError, if the binding does not exist yet.
 func (client *redisHipacheConfigClient) BindingRemoveHost(domainName, backendHostAddress string) error {
 	_, err := client.redis.Do("LREM", hipacheFrontendKey(domainName), "1", backendHostAddress)
 	if err != nil {

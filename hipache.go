@@ -29,17 +29,19 @@ type HipacheConfig interface {
 	BindingCreate(domainName string) error
 
 	// BindingDelete removes the binding along with all hosts.
+	// If the binding does not exist, no error is returned.
 	BindingDelete(domainName string) error
 
-	// BindingAddHost adds a new host to the hosts list for the given domain
+	// BindingAddHost adds a new host to the hosts list for the given domain.
+	// If the binding does not exist, *BindingNotFoundError is returned.
 	BindingAddHost(domainName, backendHostAddress string) error
 
 	// BindingRemoveHost() removes the given backendHostAddress from the list of backends for domainName.
-	// LREM frontend:{domainName} -1 {backendHostAddress}
+	// If the binding does not exist, *BindingNotFoundError is returned.
 	BindingRemoveHost(domainName, backendHostAddress string) error
 
-	// BindingGet() reads all backends and returns them.
-	// If no binding with the given name exists, error is of type *BindingNotFoundError, otherwise nil.
+	// BindingGet returns a representation of the binding in the backend.
+	// If the binding does not exist, *BindingNotFoundError is returned.
 	BindingGet(domainName string) (binding Binding, err error)
 }
 
