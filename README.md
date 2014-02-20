@@ -1,6 +1,8 @@
 hipache-config-go
 =================
 
+[![GoDoc](https://godoc.org/github.com/catalyst-zero/hipache-config-go?status.png)](https://godoc.org/github.com/catalyst-zero/hipache-config-go)
+
 Go library to configure hipache backends via redis.
 
 ## Usage
