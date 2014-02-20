@@ -1,9 +1,5 @@
 package hipache
 
-import (
-	"fmt"
-)
-
 /*
 # Hipache Redis Guide from README
 ## Define backend

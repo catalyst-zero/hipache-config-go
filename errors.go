@@ -1,5 +1,9 @@
 package hipache
 
+import (
+	"fmt"
+)
+
 type BindingNotFoundError struct {
 	DomainName string
 }
