@@ -1,4 +1,4 @@
-package server
+package hipache
 
 func NewLocalHipacheConfig() HipacheConfig {
 	return &localHipacheConfig{

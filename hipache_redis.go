@@ -1,4 +1,4 @@
-package server
+package hipache
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 // DialHipacheConfig() established a new connection to the given host:port
 // and returns a new HipacheConfigClient to modify the target redis store.
 //
-// `connectionString` must be in "host:port" format
+// connectionString` must be in "host:port" format
 func DialHipacheConfig(connectionString string) (HipacheConfig, error) {
 	redis, err := redis.Dial("tcp", connectionString)
 	return &redisHipacheConfigClient{redis}, err
